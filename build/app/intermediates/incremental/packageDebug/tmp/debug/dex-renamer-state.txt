@@ -1,4 +1,0 @@
-#Fri Aug 04 09:36:15 BRT 2023
-base.0=C\:\\Users\\Pichau\\Documents\\pessoal\\app\\flutter-app\\devstravel\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
