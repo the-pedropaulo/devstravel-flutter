@@ -1,4 +1,6 @@
+import 'package:devstravel/src/pages/city.dart';
 import 'package:devstravel/src/pages/continent.dart';
+import 'package:devstravel/src/pages/listcity.dart';
 import 'package:devstravel/src/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         '/home': (BuildContext context) => HomePage(),
         '/search': (BuildContext context) => const SearchPage(),
         '/continent': (BuildContext context) => const ContinentPage(),
+        '/listcity': (BuildContext context) => ListCityPage(),
+        '/city': (BuildContext context) => CityPage()
       },
       initialRoute: '/preload',
     );
