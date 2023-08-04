@@ -1,3 +1,4 @@
+import 'package:devstravel/src/partials/citybox.dart';
 import 'package:devstravel/src/partials/customappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,14 @@ class _ContinentPage extends State<ContinentPage> {
     backgroundColor: Colors.black,
     padding: const EdgeInsets.all(10),
   );
+
+  void handleSeeCitysAction(continentIndex) {
+    print(continentIndex);
+  }
+
+  void handleCitysBoxAction(cityData) {
+    print(cityData['name']);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +57,28 @@ class _ContinentPage extends State<ContinentPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton(
-                      style: flatButtonStyle,
-                      onPressed: () {},
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
                       child: Text(
-                          '${appData.data[index]['name']} (${cities.length})'),
+                        '${appData.data[index]['name']} (${cities.length})',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Helvetica Neue',
+                            fontSize: 14),
+                      ),
                     ),
-                    const Text('Ver cidades')
+                    TextButton(
+                        onPressed: () {
+                          handleSeeCitysAction(index);
+                        },
+                        child: const Text(
+                          'Ver cidades',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Helvetica Neue',
+                              fontSize: 11,
+                              color: Colors.grey),
+                        ))
                   ],
                 ),
                 SizedBox(
@@ -63,13 +87,11 @@ class _ContinentPage extends State<ContinentPage> {
                       scrollDirection: Axis.horizontal,
                       itemCount: cities.length,
                       itemBuilder: (cityContext, cityIndex) {
-                        return Container(
-                          width: 100,
-                          height: 100,
-                          color: Colors.red,
-                          margin: const EdgeInsets.only(left: 10, right: 10),
-                          child: Text('${cities[cityIndex]['name']}'),
-                        );
+                        return CityBox(
+                            data: cities[cityIndex],
+                            onTap: (cityData) {
+                              handleCitysBoxAction(cityData);
+                            });
                       }),
                 )
               ],
