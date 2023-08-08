@@ -5,10 +5,25 @@ import 'package:http/http.dart' as http;
 
 class AppData with ChangeNotifier {
   var data = [];
+  var favorites = ['Paris'];
 
   void setData(newData) {
     data = newData;
     notifyListeners();
+  }
+
+  bool hasFavorite(cityName) {
+    return favorites.contains(cityName);
+  }
+
+  bool addFavorite(cityName) {
+    if (hasFavorite(cityName)) {
+      favorites.remove(cityName);
+      return false;
+    } else {
+      favorites.add(cityName);
+      return true;
+    }
   }
 
   Future<bool> requestData() async {

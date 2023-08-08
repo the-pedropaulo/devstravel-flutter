@@ -21,12 +21,12 @@ class _ContinentPage extends State<ContinentPage> {
     padding: const EdgeInsets.all(10),
   );
 
-  void handleSeeCitysAction(continentIndex) {
-    print(continentIndex);
+  void handleSeeCitysAction(pageContext, continentIndex) {
+    Navigator.pushNamed(pageContext, '/listcity', arguments: continentIndex);
   }
 
-  void handleCitysBoxAction(cityData) {
-    print(cityData['name']);
+  void handleCitysBoxAction(pageContext, cityData) {
+    Navigator.pushNamed(pageContext, '/city', arguments: cityData);
   }
 
   @override
@@ -69,7 +69,7 @@ class _ContinentPage extends State<ContinentPage> {
                     ),
                     TextButton(
                         onPressed: () {
-                          handleSeeCitysAction(index);
+                          handleSeeCitysAction(context, index);
                         },
                         child: const Text(
                           'Ver cidades',
@@ -90,7 +90,7 @@ class _ContinentPage extends State<ContinentPage> {
                         return CityBox(
                             data: cities[cityIndex],
                             onTap: (cityData) {
-                              handleCitysBoxAction(cityData);
+                              handleCitysBoxAction(context, cityData);
                             });
                       }),
                 )
