@@ -26,6 +26,28 @@ class AppData with ChangeNotifier {
     }
   }
 
+  List searchCity(text) {
+    List result = [];
+
+    text = text.toString().trim().toLowerCase();
+
+    if (text == '') {
+      return result;
+    }
+
+    for (var continents in data) {
+      for (var country in continents['countries']) {
+        for (var city in country['cities']) {
+          if (city['name'].toString().toLowerCase().contains(text)) {
+            result.add(city);
+          }
+        }
+      }
+    }
+
+    return result;
+  }
+
   Future<bool> requestData() async {
     var url = Uri.https('api.b7web.com.br', '/flutter1wb');
     final res = await http.get(url);
