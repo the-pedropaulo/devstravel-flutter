@@ -1,5 +1,6 @@
 import 'package:devstravel/src/pages/city.dart';
 import 'package:devstravel/src/pages/continent.dart';
+import 'package:devstravel/src/pages/favorites.dart';
 import 'package:devstravel/src/pages/listcity.dart';
 import 'package:devstravel/src/pages/search.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         '/search': (BuildContext context) => const SearchPage(),
         '/continent': (BuildContext context) => const ContinentPage(),
         '/listcity': (BuildContext context) => ListCityPage(),
-        '/city': (BuildContext context) => CityPage()
+        '/city': (BuildContext context) => const CityPage(),
+        '/favorites': (BuildContext context) => const FavoritesPage(),
       },
       initialRoute: '/preload',
     );

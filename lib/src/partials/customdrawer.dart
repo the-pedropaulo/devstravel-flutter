@@ -7,13 +7,13 @@ Widget CustomDrawer({required BuildContext pageContext}) {
       children: [
         const DrawerHeader(
           decoration: BoxDecoration(
-            color: Colors.green,
+            color: Colors.blue,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Drawer Header',
+              Text('DevsTravel',
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -52,7 +52,7 @@ Widget CustomDrawer({required BuildContext pageContext}) {
           leading: const Icon(Icons.favorite),
           title: const Text('Cidades Salvas'),
           onTap: () {
-            Navigator.pushReplacementNamed(pageContext, '/citys');
+            Navigator.pushReplacementNamed(pageContext, '/favorites');
           },
         ),
       ],

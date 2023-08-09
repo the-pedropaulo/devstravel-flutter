@@ -26,6 +26,19 @@ class AppData with ChangeNotifier {
     }
   }
 
+  List favoritesList() {
+    List result = [];
+
+    for (var favorite in favorites) {
+      List foundCities = searchCity(favorite);
+      if (foundCities.isNotEmpty) {
+        result.add(foundCities[0]);
+      }
+    }
+
+    return result;
+  }
+
   List searchCity(text) {
     List result = [];
 
